@@ -1,0 +1,114 @@
+
+body{
+    background-image: url(bg-pattern.png);
+}
+
+.container {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:50px;
+}
+
+.main-content {
+    width:70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar{
+    width:30%;
+    position: relative;
+    display: flex;
+    align-content: end;
+    flex-direction: column;
+}
+
+.sidebar-inner{
+    padding:0px 30px;
+}
+
+.bandcamp{
+    margin-top:50px;
+}
+
+.instagram{
+    margin-top:50px;
+}
+
+.footer{
+    margin-top:100px;
+    margin-bottom:15px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:991px){
+    .main-content {
+        width:100%;
+    }
+    .sidebar{
+        position: relative;
+        width:100%;
+    }
+}
+
+.wrapper{
+    margin: 50px 0px;
+    position: relative;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: start;     /* center items horizontally, in this case */  
+}
+
+.hover-shape {
+    position: absolute;
+    display: none;
+    pointer-events: none; /* Ensures the shape doesn't interfere with mouse events */
+    z-index: 1000;
+}
+
+.animated-overlay {
+    position: absolute;
+    display: none;
+    pointer-events: none; /* Ensures the GIF doesn't interfere with mouse events */
+    z-index: 1001;
+    background: transparent; /* Ensure background is transparent */
+    border: none; /* Remove any default border */
+}
+
+#image-map {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+}
+h1{
+    font-family: Arial;
+    font-size:28px;
+    color:#b988bb;
+}
+p{
+    font-family:'Arial';
+    font-size:18px;
+    color:#704c60;
+}
+a{
+    font-family: 'Arial';
+    font-size:18px;
+    color:rgb(149, 100, 161);
+    text-decoration: none;
+}
+a:hover{
+    color:rgb(114, 74, 124);
+    border-bottom:2px solid;
+}
+.return-link{
+    position: fixed;
+    z-index:9005;
+}
