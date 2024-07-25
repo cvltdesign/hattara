@@ -4,20 +4,11 @@ body{
 }
 
 .container {
-    width:100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top:50px;
+ 
 }
 
 .main-content {
-    width:70%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .sidebar{
@@ -58,7 +49,7 @@ body{
 }
 
 .wrapper{
-    margin: 50px 0px;
+    margin: 25px 0px;
     position: relative;
     display: flex;           /* establish flex container */
     flex-direction: column;  /* make main axis vertical */
@@ -88,10 +79,19 @@ body{
     height: auto;
     display: block;
 }
-h1{
+h1, h2, h3, h4, h5, h6{
     font-family: Arial;
-    font-size:28px;
     color:#b988bb;
+    font-weight: bold;
+}
+h1{
+    font-size:28px;
+}
+h3{
+    font-size:24px;
+}
+h2{
+    font-size:20px;
 }
 p{
     font-family:'Arial';
