@@ -8,49 +8,10 @@ ul li{
     list-style-type: none;
 }
 
-.container {
- 
-}
-
-.main-content {
-
-}
-
-.sidebar{
-    width:30%;
-    position: relative;
-    display: flex;
-    align-content: end;
-    flex-direction: column;
-}
-
-.sidebar-inner{
-    padding:0px 30px;
-}
-
-.bandcamp{
-    margin-top:50px;
-}
-
-.instagram{
-    margin-top:50px;
-}
-
-.footer{
-    margin-top:100px;
-    margin-bottom:15px;
-    display: flex;
-    justify-content: center;
-}
-
-@media (max-width:991px){
-    .main-content {
-        width:100%;
-    }
-    .sidebar{
-        position: relative;
-        width:100%;
-    }
+img{
+  max-width: 100%;
+  width:100%;
+  height: auto;
 }
 
 .wrapper{

@@ -49,7 +49,10 @@
                 <div class="col col-12 col-lg-7 col-xl-6 covert-art d-none d-lg-block">
 
                     <img src="hattara-background.png" id="image-map" usemap="#image-map" alt="" />
-                    <audio id="audio" src="leiju.mp3"></audio>
+
+                    <audio id="audio-leiju" src="leiju.mp3"></audio>
+                    <audio id="audio-vikabiisi" src="vika-biisi.mp3"></audio>
+                    <audio id="audio-helle" src="helle.mp3"></audio>
                     
                     <map name="image-map">
                         <area shape="rect" alt="lokki" coords="911,111,1200,219" href="lyriikat.html" id="area1" />
@@ -57,6 +60,7 @@
                         <area shape="circle" alt="punanenkukka" coords="160,940,64" href="jasenet.html" id="area3" />
                         <area shape="circle" alt="sininen-kukka" coords="336,636,77" href="#" id="area4" />
                         <area shape="circle" alt="diskopallo" coords="261,200,126" href="keikat.html" id="area5" />
+                        <area shape="rect" coords="1094, 788, 1196, 981" href="#" id="area6" />
                     </map>
 
                     <!-- SVG Definitions for shapes -->
@@ -75,6 +79,9 @@
                     <svg class="hover-shape" id="hoverShape5">
                         <circle fill="none" stroke="none" stroke-width="2" />
                     </svg>
+                    <svg class="hover-shape" id="hoverShape6">
+                        <circle fill="none" stroke="none" stroke-width="2" />
+                    </svg>
 
                     <!-- GIF Overlay for each area -->
                     <img class="animated-overlay" id="gifOverlay1" src="lokki-lento.gif" />
@@ -82,19 +89,21 @@
                     <img class="animated-overlay" id="gifOverlay3" src="punanenkukka-gif2.gif" />
                     <img class="animated-overlay" id="gifOverlay4" src="sininenkukka.gif" />
                     <img class="animated-overlay" id="gifOverlay5" src="diskopallo-gif2.gif" />
+                    <img class="animated-overlay" id="gifOverlay6" src="valkonenkukka.gif" />
 
                     <!-- Text overlay for each area -->
                     <div class="hover-text" id="hoverText1">Lyriikat</div>
-                    <div class="hover-text" id="hoverText2">Kuuntele ⏵/⏸</div>
+                    <div class="hover-text" id="hoverText2">Leiju ⏵/⏸</div>
                     <div class="hover-text" id="hoverText3">Jäsenet</div>
-                    <div class="hover-text" id="hoverText4">Sininen Kukka</div>
+                    <div class="hover-text" id="hoverText4">Vika biisi ⏵/⏸</div>
                     <div class="hover-text" id="hoverText5">Keikat</div>
+                    <div class="hover-text" id="hoverText6">Helle ⏵/⏸</div>
 
                 </div>
 
                 <div class="col col-12 col-lg-4 col-xl-3 sidebar">
 
-                    <div class="sidebar-inner">
+                    <div class="sidebar-inner px-3">
         
                         <div class="col col-12 site-title">
                             <h1 style="margin-top:0;">Hattara</h1>
@@ -113,7 +122,7 @@
 
                         <div class="col col-12 keikat py-4">
 
-                            <h2>Tulevat keikat:</h2>
+                            <h2 class="mt-0">Tulevat keikat:</h2>
 
                             <div class="wrapper">
                                 <p>23.08. Levyjulkkarit Bar Loosessa. Ovet 20:30.</p>
@@ -121,7 +130,7 @@
                                 <a href="https://www.facebook.com/events/496402356286953"><i style="font-size:18px; margin-right:10px;" class="fa">&#xf09a;</i>Tapahtuma Facebookissa</a>
                             </div>
                 
-                            <hr style="width:100%; margin:25px 0px; border: 1px solid rgb(102, 55, 82);"/>
+                            <hr style="width:100%; border: 1px solid rgb(102, 55, 82);"/>
                 
                             <div class="wrapper">
                                 <p>30.08. Bar Kotelo, Tampere. Ovet 20:00.</p>
@@ -130,7 +139,7 @@
                     
                             </div>
 
-                            <hr style="width:100%; margin:25px 0px; border: 1px solid rgb(102, 55, 82);"/>
+                            <hr style="width:100%; border: 1px solid rgb(102, 55, 82);"/>
                         </div>
         
                         <div class="col col-12 bandcamp">
@@ -144,7 +153,7 @@
 
                 </div>
                 
-                <div class="col col-12 footer">
+                <div class="col col-12 footer mt-5 pt-5">
         
                     <div style="text-align:center;" class="visitor-counter">
                         <p>Sivustolla on vierailtu <span style="font-family:'Franklin Gothic Medium';" id="count">0</span> kertaa!</p>
@@ -214,7 +223,7 @@
     <script>
         $(document).ready(function() {
             function togglePlayPause() {
-                var audio = document.getElementById("audio");
+                var audio = document.getElementById("audio-leiju");
                 audio.volume = 0.25;
                 if (audio.paused) {
                     audio.play();
@@ -229,6 +238,44 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        function togglePlayPause2() {
+            var audio2 = document.getElementById("audio-vikabiisi");
+            audio2.volume = 0.25;
+            if (audio2.paused) {
+                audio2.play();
+            } else {
+                audio2.pause();
+            }
+        }
+
+        $('#area4').on('click', function(event) {
+            event.preventDefault();
+            togglePlayPause2();
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        function togglePlayPause2() {
+            var audio3 = document.getElementById("audio-helle");
+            audio3.volume = 0.25;
+            if (audio3.paused) {
+                audio3.play();
+            } else {
+                audio3.pause();
+            }
+        }
+
+        $('#area6').on('click', function(event) {
+            event.preventDefault();
+            togglePlayPause2();
+        });
+    });
+</script>
 
     <script>
         $(document).ready(function() {
@@ -310,7 +357,7 @@
                     });
 
                     gifOverlay.css({
-                        left: imgPos.left + cx - r - 12,
+                        left: imgPos.left + cx - r - 8,
                         top: imgPos.top + cy - r,
                         width: diameter,
                         height: diameter,
@@ -327,8 +374,8 @@
                     var y1 = coords[1];
                     var x2 = coords[2];
                     var y2 = coords[3];
-                    var width = (x2 - x1) * 1.05;
-                    var height = (y2 - y1) * 1.05;
+                    var width = (x2 - x1) * 1;
+                    var height = (y2 - y1) * 1;
 
                     hoverShape.find('polygon').attr('points', `${x1},${y1} ${x2},${y1} ${x2},${y2} ${x1},${y2}`);
 
@@ -340,7 +387,7 @@
                     });
 
                     gifOverlay.css({
-                        left: imgPos.left + x1 - 25,
+                        left: imgPos.left + x1 - 1,
                         top: imgPos.top + y1,
                         width: width,
                         height: height,
