@@ -156,7 +156,7 @@
                 <div class="col col-12 footer mt-5 pt-5">
         
                     <div style="text-align:center;" class="visitor-counter">
-                        <p>Sivustolla on vierailtu <span style="font-family:'Franklin Gothic Medium';" id="count">0</span> kertaa!</p>
+                        <p>Sivustolla on vierailtu <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="website-counter"></span> kertaa!</p>
                         <p style="font-size:14px;">© 2024 Hattara & <span style="color:#5f5e8e;">CVLT Design</span></p>
                     </div>
         
@@ -207,17 +207,27 @@
     </script>
 
     <script>
-        const countEl = document.getElementById('count');
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
 
-        updateVisitCount();
-
-        function updateVisitCount() {
-            fetch('https://api.countapi.xyz/update/perryfeinstein.com/8886648850?amount=1')
-            .then(res => res.json())
-            .then(res => {
-                countEl.innerHTML = res.value;
-            });
+        // Check if page_view entry is present
+        if (visitCount) {
+        visitCount = Number(visitCount) + 1;
+        localStorage.setItem("page_view", visitCount);
+        } else {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
         }
+        counterContainer.innerHTML = visitCount;
+
+        // Adding onClick event listener
+        resetButton.addEventListener("click", () => {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
+        counterContainer.innerHTML = visitCount;
+        });
+
     </script>
     
     <script>
