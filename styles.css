@@ -1,11 +1,11 @@
 
 body{
-    background-image: url(bg-pattern.png);
-    font-family: Arial;
+  background-image: url(bg-pattern.png);
+  font-family: Arial;
 }
 
 ul li{
-    list-style-type: none;
+  list-style-type: none;
 }
 
 img{
@@ -15,73 +15,96 @@ img{
 }
 
 .wrapper{
-    margin: 25px 0px;
-    position: relative;
-    display: flex;           /* establish flex container */
-    flex-direction: column;  /* make main axis vertical */
-    justify-content: center; /* center items vertically, in this case */
-    align-items: start;     /* center items horizontally, in this case */  
+  margin: 25px 0px;
+  position: relative;
+  display: flex;           /* establish flex container */
+  flex-direction: column;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: start;     /* center items horizontally, in this case */  
 }
 
 .hover-shape {
-    position: absolute;
-    display: none;
-    pointer-events: none; /* Ensures the shape doesn't interfere with mouse events */
-    z-index: 1000;
+  position: absolute;
+  display: none;
+  pointer-events: none; /* Ensures the shape doesn't interfere with mouse events */
+  z-index: 1000;
 }
 
 .animated-overlay {
-    position: absolute;
-    display: none;
-    pointer-events: none; /* Ensures the GIF doesn't interfere with mouse events */
-    z-index: 1001;
-    background: transparent; /* Ensure background is transparent */
-    border: none; /* Remove any default border */
+  position: absolute;
+  display: none;
+  pointer-events: none; /* Ensures the GIF doesn't interfere with mouse events */
+  z-index: 1001;
+  background: transparent; /* Ensure background is transparent */
+  border: none; /* Remove any default border */
 }
 
 #image-map {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  display: block;
 }
+
+#image-map:hover{
+  /*-webkit-filter: hue-rotate(-20deg);*/
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: all ease-in 0.2s;
+}
+
+
 h1, h2, h3, h4, h5, h6{
-    font-family: Arial;
-    color:#b988bb;
-    font-weight: bold;
+  font-family: Arial;
+  color:#b988bb;
+  font-weight: bold;
 }
 h1{
-    font-size:28px;
+  font-size:28px;
 }
 h3{
-    font-size:24px;
+  font-size:24px;
 }
 h2{
-    font-size:20px;
+  font-size:20px;
 }
 p{
-    font-family:'Arial';
-    font-size:18px;
-    color:#704c60;
+  font-family:'Arial';
+  font-size:18px;
+  color:#704c60;
 }
 .lyric p{
     font-size: 15px;
 }
 
 a{
-    font-family: 'Arial';
-    font-size:18px;
-    color:rgb(149, 100, 161);
-    text-decoration: none;
+  font-family: 'Arial';
+  font-size:18px;
+  color:rgb(149, 100, 161);
+  text-decoration: none;
+  border-bottom:2px solid transparent;
 }
 a:hover{
-    color:rgb(114, 74, 124);
-    border-bottom:2px solid;
+  color:rgb(114, 74, 124);
+  border-bottom:2px solid;
 }
 .return-link{
-    position: fixed;
-    z-index:9005;
-    left:50px;
+  position: fixed;
+  z-index:9005;
+  left:50px;
+}
+
+.bandmember img{
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.bandmember img:hover{
+  
+  -webkit-filter: brightness(125%) hue-rotate(3.142rad);
+  
 }
 
 /* NAV MENU */
