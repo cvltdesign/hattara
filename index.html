@@ -27,8 +27,9 @@
         </div>
     
         <ul id="menu">
-            <li><a href="#">Jäsenet</a></li>
-            <li><a href="#">Lyriikat</a></li>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="jasenet.html">Hattara</a></li>
+            <li><a href="lyriikat.html">Lyriikat</a></li>
         </ul>
     
     </nav>
@@ -57,7 +58,7 @@
 
                 <div class="col col-12 col-lg-7 col-xl-6 covert-art d-none d-lg-block">
 
-                    <img src="hattara-background.png" id="image-map" usemap="#image-map" alt="" />
+                    <img loading="lazy" src="hattara-background.png" id="image-map" usemap="#image-map" alt="" />
 
                     <audio id="audio-leiju" src="leiju.mp3"></audio>
                     <audio id="audio-vikabiisi" src="vika-biisi.mp3"></audio>
@@ -165,7 +166,8 @@
                 <div class="col col-12 footer mt-5 pt-5">
         
                     <div style="text-align:center;" class="visitor-counter">
-                        <p>Sivustolla on vierailtu <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="website-counter"></span> kertaa!</p>
+                        <p>Sivustolla on vierailtu <span style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="website-counter">0</span> kertaa!</p>
+                        
                         <!--<button id="reset">Reset</button>-->
                         <p style="font-size:14px;">© 2024 Hattara & <span style="color:#5f5e8e;">CVLT Design</span></p>
                     </div>
@@ -217,26 +219,18 @@
     </script>
 
     <script>
-        var counterContainer = document.querySelector(".website-counter");
-        var resetButton = document.querySelector("#reset");
-        var visitCount = localStorage.getItem("page_view");
 
-        // Check if page_view entry is present
-        if (visitCount) {
-        visitCount = Number(visitCount) + 1;
-        localStorage.setItem("page_view", visitCount);
-        } else {
-        visitCount = 1;
-        localStorage.setItem("page_view", 1);
-        }
-        counterContainer.innerHTML = visitCount;
+        const count = document.getElementById('count');
 
-        // Adding onClick event listener
-        resetButton.addEventListener("click", () => {
-        visitCount = 1;
-        localStorage.setItem("page_view", 1);
-        counterContainer.innerHTML = visitCount;
+        updateVisitCount();
+
+        function updateVisitCount(){
+        fetch('https://api.countapi.xyz/update/popsi/popsi/?amount=1')
+            .then(res => res.json())
+            .then(res => {
+            count.innerHTML = res.value
         });
+        }
 
     </script>
     
