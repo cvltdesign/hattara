@@ -50,6 +50,8 @@ img{
   /*-webkit-filter: hue-rotate(-20deg);*/
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: all ease-in 0.2s;
+  cursor:grab;
+  cursor:-webkit-grab;
 }
 
 
