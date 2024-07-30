@@ -1,6 +1,40 @@
 var $ = jQuery;
 
+// LYRICS BAR //
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('lyrics.txt')
+        .then(response => response.text())
+        .then(data => {
+            const lyricsBar = document.getElementById('lyricsBar');
+            const lines = data.split('\n');
+            // Include Scandinavian letters in the regular expression
+            const nonEmptyLines = lines.filter(line => /[a-zA-ZäöÄÖ]/.test(line));
+            
+            // Function to shuffle the array
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            // Shuffle the non-empty lines
+            shuffle(nonEmptyLines);
+            
+            let currentIndex = 0;
+            lyricsBar.textContent = nonEmptyLines[currentIndex];
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % nonEmptyLines.length;
+                lyricsBar.textContent = nonEmptyLines[currentIndex];
+            }, 4000);
+        })
+        .catch(error => console.error('Error fetching lyrics:', error));
+});
+
 $(document).ready(function(){
+
 
     // MENU //
 
