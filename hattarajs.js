@@ -2,6 +2,7 @@ var $ = jQuery;
 
 // LYRICS BAR //
 
+
 document.addEventListener("DOMContentLoaded", function() {
     fetch('lyrics.txt')
         .then(response => response.text())
@@ -23,12 +24,29 @@ document.addEventListener("DOMContentLoaded", function() {
             shuffle(nonEmptyLines);
             
             let currentIndex = 0;
-            lyricsBar.textContent = nonEmptyLines[currentIndex];
+            
+            function typewrite(text, callback) {
+                let i = 0;
+                lyricsBar.textContent = '';
+                function type() {
+                    if (i < text.length) {
+                        lyricsBar.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, 100); // Adjust typing speed here
+                    } else if (callback) {
+                        setTimeout(callback, 2000); // Delay before showing the next line
+                    }
+                }
+                type();
+            }
 
-            setInterval(() => {
+            function showNextLine() {
                 currentIndex = (currentIndex + 1) % nonEmptyLines.length;
-                lyricsBar.textContent = nonEmptyLines[currentIndex];
-            }, 4000);
+                typewrite(nonEmptyLines[currentIndex], showNextLine);
+            }
+
+            // Start with the first line
+            typewrite(nonEmptyLines[currentIndex], showNextLine);
         })
         .catch(error => console.error('Error fetching lyrics:', error));
 });
