@@ -114,6 +114,31 @@ a:hover{
   
 }
 
+form label{
+  font-family: Arial;
+  font-size: 16px;
+  color:#704c60;
+}
+
+button, input, optgroup, select, textarea{
+  border:1px solid #b988bb;
+}
+
+[type=submit]{
+  background-color:#f1b6d7;
+  border: none;
+  padding:0.5rem 2rem;
+  color:#704c60;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+[type=submit]:hover,
+[type=submit]:active{
+  background-color:#be90aa;
+  color:#704c60;
+}
+
 /* NAV MENU */
 
 .nav {

@@ -1,5 +1,49 @@
 var $ = jQuery;
 
+// EMAIL VALIDATOR //
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to validate a form
+    function validateForm(form) {
+        var name = form.querySelector('input[name="name"]').value.trim();
+        var email = form.querySelector('input[name="email"]').value.trim();
+        var quantity = form.querySelector('input[name="quantity"]').value.trim();
+        var address = form.querySelector('input[name="address"]').value.trim();
+        var city = form.querySelector('input[name="city"]').value.trim();
+        var postalcode = form.querySelector('input[name="postalcode"]').value.trim();
+        var country = form.querySelector('input[name="country"]').value.trim();
+
+        if (!name || !email || !quantity || !address || !city || !postalcode || !country) {
+            alert('Ole hyvä ja täytä kaikki kentät.');
+            return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Ole hyvä ja anna kelvollinen sähköpostiosoite.');
+            return false;
+        }
+        return true;
+    }
+
+    // Attach event listeners to both forms
+    var form1 = document.querySelector('form[action="contact.php"][name="form1"]');
+    var form2 = document.querySelector('form[action="contact.php"][name="form2"]');
+
+    if (form1) {
+        form1.addEventListener('submit', function(event) {
+            if (!validateForm(form1)) {
+                event.preventDefault();
+            }
+        });
+    }
+
+    if (form2) {
+        form2.addEventListener('submit', function(event) {
+            if (!validateForm(form2)) {
+                event.preventDefault();
+            }
+        });
+    }
+});
+
 // RANDOM QUOTES FOR BAND MEMBERS //
 
 // Object to keep track of the last displayed quote for each band member

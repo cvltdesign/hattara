@@ -57,11 +57,43 @@
                 <img src="kassu.jfif">
             </div>
 
-            <div class="col-12 col-lg-4 info">
+            <div class="col-12 col-lg-8 info">
                 <p><strong>ehkä me nähdään huomenna</strong> / kasetti</p>
                 <p>8e + postikulut</p>
-                <p class="mb-0">tilaa sähköpostilla:</p><a href="mailto:hattaratheband@gmail.com">hattaratheband@gmail.com</a>
-                <p class="py-4">kirjoita viestiin kappalemäärä ja osoitetietosi.</p>
+                <p>maksu mobilepaylla tai tilisiirrolla. laita viestiksi nimi jolla teit tilauksen!</p>
+                <p>ongelmatilanteissa ota yhteyttä sähköpostilla: <a href="mailto:hattaratheband@gmail.com">hattaratheband@gmail.com</a></p>
+
+                <div class="my-5"></div>
+
+                <form class="d-flex flex-wrap" action="contact.php" method="POST">
+                    <div class="col col-12 col-lg-5 col-xl-4">
+                        <label for="name1">Nimi:</label><br>
+                        <input type="text" id="name1" name="name" required><br><br>
+                
+                        <label for="email1">Sähköposti:</label><br>
+                        <input type="email" id="email1" name="email" required><br><br>
+                
+                        <label for="quantity1">Määrä:</label><br>
+                        <input type="number" id="quantity1" name="quantity" min="1" required><br><br>
+                    </div>
+                    
+                    <div class="col col-12 col-lg-5 col-xl-4">
+                
+                        <label for="address1">Katuosoite:</label><br>
+                        <input type="text" id="address1" name="address" required><br><br>
+                
+                        <label for="city1">Kaupunki:</label><br>
+                        <input type="text" id="city1" name="city" required><br><br>
+                
+                        <label for="postalcode1">Postinumero:</label><br>
+                        <input type="text" id="postalcode1" name="postalcode" required><br><br>
+                
+                        <label for="country1">Maa:</label><br>
+                        <input type="text" id="country1" name="country" required><br><br>
+                
+                        <input type="submit" name="form1" value="Tilaa">
+                    </div>
+                </form>
             </div>
             
             <hr class="my-5" style="border: 1px solid rgb(102, 55, 82);"/>
@@ -70,13 +102,44 @@
                 <img src="hattara-background.png">
             </div>
 
-            <div class="col-12 col-lg-4 info">
+            <div class="col-12 col-lg-8 info">
                 <p>TULOSSA</p>
                 <p><strong>ehkä me nähdään huomenna</strong> / cd </p>
                 <p>15e + postikulut</p>
-                <p class="mb-0">tilaa sähköpostilla:</p><a href="mailto:hattaratheband@gmail.com">hattaratheband@gmail.com</a>
-                <p class="py-4">kirjoita viestiin kappalemäärä ja osoitetietosi.</p>
-                <p>TOIMITUSPÄIVÄMÄÄRÄ: <strong>TBA</strong></p>
+                <p>maksu mobilepaylla tai tilisiirrolla, laita viestiksi nimi jolla teit tilauksen!</p>
+                <p>ongelmatilanteissa ota yhteyttä sähköpostilla: <a href="mailto:hattaratheband@gmail.com">hattaratheband@gmail.com</a></p>
+                <div class="my-5"></div>
+
+                <form class="d-flex flex-wrap" action="contact.php" method="POST">
+                    <div class="col col-12 col-lg-5 col-xl-4">
+                        <label for="name2">Nimi:</label><br>
+                        <input type="text" id="name2" name="name" required><br><br>
+                
+                        <label for="email2">Sähköposti:</label><br>
+                        <input type="email" id="email2" name="email" required><br><br>
+                
+                        <label for="quantity2">Määrä:</label><br>
+                        <input type="number" id="quantity2" name="quantity" min="1" required><br><br>
+            
+                    </div>
+
+                    <div class="col col-12 col-lg-5 col-xl-4">
+            
+                        <label for="address2">Katuosoite:</label><br>
+                        <input type="text" id="address2" name="address" required><br><br>
+                
+                        <label for="city2">Kaupunki:</label><br>
+                        <input type="text" id="city2" name="city" required><br><br>
+                
+                        <label for="postalcode2">Postinumero:</label><br>
+                        <input type="text" id="postalcode2" name="postalcode" required><br><br>
+                
+                        <label for="country2">Maa:</label><br>
+                        <input type="text" id="country2" name="country" required><br><br>
+                
+                        <input type="submit" name="form2" value="Tilaa">
+                    </div>
+                </form>
             </div>
             
 
