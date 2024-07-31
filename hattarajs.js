@@ -1,5 +1,59 @@
 var $ = jQuery;
 
+// RANDOM QUOTES FOR BAND MEMBERS //
+
+// Object to keep track of the last displayed quote for each band member
+const lastQuotes = {
+    saara: '',
+    juhis: '',
+    miikka: '',
+    mikael: ''
+};
+
+function getRandomQuote(quotes, lastQuote) {
+    let newQuote;
+    do {
+        newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    } while (newQuote === lastQuote); // Ensure the new quote is different from the last one
+    return newQuote;
+}
+
+function typeWriterEffect(element, text, speed = 50) {
+    element.text('');
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            element.append(text.charAt(i));
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+function loadQuotes(file, elementId, member) {
+    $.get(file, function(data) {
+        const quotes = data.split('\n').filter(Boolean);
+        const newQuote = getRandomQuote(quotes, lastQuotes[member]); // Pass the last displayed quote
+        const element = $('#' + elementId);
+        typeWriterEffect(element, newQuote);
+        lastQuotes[member] = newQuote; // Update the last displayed quote
+    });
+}
+
+function updateQuotes() {
+    loadQuotes('saara-quotes.txt', 'saara-quote', 'saara');
+    loadQuotes('juhis-quotes.txt', 'juhis-quote', 'juhis');
+    loadQuotes('miikka-quotes.txt', 'miikka-quote', 'miikka');
+    loadQuotes('mikael-quotes.txt', 'mikael-quote', 'mikael');
+}
+
+$(document).ready(function() {
+    updateQuotes(); // Load initial quotes
+    setInterval(updateQuotes, 10000); // Update every 10 seconds
+});
+
+
 // LYRICS BAR //
 
 
@@ -52,6 +106,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 $(document).ready(function(){
+
+    // VISITOR COUNTER //
+
+    $.getJSON('visitor_counter.php', function(data) {
+        $('.website-counter').text(data.count);
+    });
 
 
     // MENU //

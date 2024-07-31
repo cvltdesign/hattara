@@ -44,12 +44,13 @@ img{
   max-width: 1200px;
   height: auto;
   display: block;
+  transition: all ease-in 0.3s;
 }
 
 #image-map:hover{
-  /*-webkit-filter: hue-rotate(-20deg);*/
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  transition: all ease-in 0.2s;
+  /*-webkit-filter: hue-rotate(10deg);*/
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  transition: all ease-in 0.3s;
   cursor:grab;
   cursor:-webkit-grab;
 }
