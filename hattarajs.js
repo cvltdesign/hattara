@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var address = form.querySelector('input[name="address"]').value.trim();
         var city = form.querySelector('input[name="city"]').value.trim();
         var postalcode = form.querySelector('input[name="postalcode"]').value.trim();
-        var country = form.querySelector('input[name="country"]').value.trim();
 
         if (!name || !email || !quantity || !address || !city || !postalcode || !country) {
             alert('Ole hyvä ja täytä kaikki kentät.');
