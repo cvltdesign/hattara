@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var city = form.querySelector('input[name="city"]').value.trim();
         var postalcode = form.querySelector('input[name="postalcode"]').value.trim();
 
-        if (!name || !email || !quantity || !address || !city || !postalcode || !country) {
+        if (!name || !email || !quantity || !address || !city || !postalcode) {
             alert('Ole hyvä ja täytä kaikki kentät.');
             return false;
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -22,23 +22,56 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
+    // Function to submit the form via AJAX and open the response in a new tab
+    function submitFormInNewTab(event, form) {
+        event.preventDefault(); // Prevent the default form submission
+
+        if (!validateForm(form)) {
+            return;
+        }
+
+        // Open a new tab/window for the order confirmation
+        var newTab = window.open('', '_blank');
+        if (!newTab) {
+            alert('Uusi välilehti ei voitu avata. Salli ponnahdusikkunat selaimessa.');
+            return;
+        }
+
+        // Prepare the form data
+        var formData = new FormData(form);
+
+        // Create a form element to submit the data to the new tab
+        var formElement = newTab.document.createElement('form');
+        formElement.method = 'POST';
+        formElement.action = form.action;
+
+        // Append the form data to the form element
+        for (var [key, value] of formData.entries()) {
+            var input = newTab.document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            formElement.appendChild(input);
+        }
+
+        // Append the form element to the new tab and submit it
+        newTab.document.body.appendChild(formElement);
+        formElement.submit();
+    }
+
     // Attach event listeners to both forms
-    var form1 = document.querySelector('form[action="contact.php"][name="form1"]');
-    var form2 = document.querySelector('form[action="contact.php"][name="form2"]');
+    var form1 = document.querySelector('form[name="form1"]');
+    var form2 = document.querySelector('form[name="form2"]');
 
     if (form1) {
         form1.addEventListener('submit', function(event) {
-            if (!validateForm(form1)) {
-                event.preventDefault();
-            }
+            submitFormInNewTab(event, form1);
         });
     }
 
     if (form2) {
         form2.addEventListener('submit', function(event) {
-            if (!validateForm(form2)) {
-                event.preventDefault();
-            }
+            submitFormInNewTab(event, form2);
         });
     }
 });

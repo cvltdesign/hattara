@@ -13,6 +13,14 @@ body{
   }
 }
 
+form input{
+  min-width:265px;
+}
+
+form input [type="submit"]{
+  min-width: 100px;
+}
+
 .hover-text {
   position: absolute;
   display: none;
